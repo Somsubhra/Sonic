@@ -4,7 +4,7 @@ from direct.interval.IntervalGlobal import *
 
 
 class Gui:
-    def __index__(self, fonts):
+    def __init__(self, fonts):
         self.modTS = TextureStage("Modulate")
         self.modTS.setMode(TextureStage.MModulate)
 
@@ -29,7 +29,7 @@ class Gui:
             parent=base.a2dBottomLeft
         )
 
-        shieldEgg = loader.loadModel("../Models/ShieldBar.egg")
+        shieldEgg = loader.loadModel("Models/ShieldBar.egg")
         self.shieldBG = shieldEgg.find("**/BackgroundBar")
         self.shieldBar = shieldEgg.find("**/ShieldBar")
         self.shieldFrame = shieldEgg.find("**/BarFrame")
@@ -38,7 +38,7 @@ class Gui:
         self.shieldFrame.reparentTo(self.shieldBG)
         self.shieldBG.setPos(.1, 0, .225)
 
-        speedEgg = loader.loadModel("../Models/SpeedBar.egg")
+        speedEgg = loader.loadModel("Models/SpeedBar.egg")
         self.speedBG = speedEgg.find("**/BackgroundBar")
         self.speedBar = speedEgg.find("**/SpeedBar")
         self.speedFrame = speedEgg.find("**/BarFrame")
@@ -47,7 +47,7 @@ class Gui:
         self.speedFrame.reparentTo(self.speedBG)
         self.speedBG.setPos(.175, 0, .225)
 
-        alpha = loader.loadTexture("../Images/BarAlpha.png")
+        alpha = loader.loadTexture("Images/BarAlpha.png")
         alpha.setFormat(Texture.FAlpha)
         alpha.setWrapV(Texture.WMClamp)
 
@@ -57,7 +57,7 @@ class Gui:
         self.throttleBar = speedEgg.find("**/ThrottleBar")
         self.throttleBar.reparentTo(self.speedBG)
 
-        throtAlpha = loader.loadTexture("../Images/ThrottleAlpha.png")
+        throtAlpha = loader.loadTexture("Images/ThrottleAlpha.png")
         throtAlpha.setFormat(Texture.FAlpha)
         self.throttleBar.setTexture(self.modTS, throtAlpha)
 
@@ -81,7 +81,7 @@ class Gui:
                                    parent=base.a2dTopRight
         )
 
-        energyEgg = loader.loadModel("../Models/EnergyBar.egg")
+        energyEgg = loader.loadModel("Models/EnergyBar.egg")
         self.energyBG = energyEgg.find("**/EnergyBG")
         self.energyBar = energyEgg.find("**/EnergyBar")
         self.energyFrame = energyEgg.find("**/EnergyFrame")
@@ -90,7 +90,7 @@ class Gui:
         self.energyFrame.reparentTo(self.energyBG)
         self.energyBG.setPos(-.35, 0, -.0375)
 
-        alpha = loader.loadTexture("../Images/ReloadAlpha.png")
+        alpha = loader.loadTexture("Images/ReloadAlpha.png")
         alpha.setFormat(Texture.FAlpha)
         alpha.setWrapU(Texture.WMClamp)
 
