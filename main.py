@@ -18,8 +18,8 @@ class World:
 		self.menuGraphics = loader.loadModel("Models/MenuGraphics.egg")
 
 		self.fonts = {
-			"silver": loader.loadFont("Fonts/LuconSilver.egg")
-			"blue": loader.loadFont("Fonts/LuconBlue.egg")
+			"silver": loader.loadFont("Fonts/LuconSilver.egg"),
+			"blue": loader.loadFont("Fonts/LuconBlue.egg"),
 			"orange": loader.loadFont("Fonts/LuconOrange.egg")
 		}
 		
