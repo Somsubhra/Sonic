@@ -41,7 +41,9 @@ class Actor(DirectObject):
 
         if (startPos == 1):
             self.root.setPos(5, 0, 0)
-            self.model = loader.loadModel("Models/RedActor.bam")
+            self.model = loader.loadModel("Models/sonic.egg")
+            self.model.setScale(0.1,0.1,0.1)
+            self.model.setHpr(180,0,0)
         elif (startPos == 2):
             self.root.setPos(-5, -5, 0)
             self.model = loader.loadModel("Models/BlueActor.bam")
