@@ -1,0 +1,20 @@
+<CoordinateSystem> { Y-Up }
+
+<Comment> {
+  "maya2egg2009 -a model -o Heavy01Actor.egg 'C:\EggLayer\Heavy01Actor.mb'"
+}
+<Group> Heavy01Actor {
+  <Dart> { 1 }
+  <Group> groundPlane_transform {
+  }
+  <Joint> Muzzle {
+    <Transform> {
+      <Matrix4> {
+        1 0 0 0
+        0 1 0 0
+        0 0 1 0
+        0 0 -1.33 1
+      }
+    }
+  }
+}

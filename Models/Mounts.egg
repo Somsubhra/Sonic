@@ -1,0 +1,37 @@
+<CoordinateSystem> { Y-Up }
+
+<Group> FrameActor {
+  <Dart> { 1 }
+  <Group> groundPlane_transform {
+  }
+  <Joint> RearDisc {
+    <Transform> {
+      <Matrix4> {
+        1 0 0 0
+        0 1 0 0
+        0 0 1 0
+        0 0.561466 1.32423 1
+      }
+    }
+  }
+  <Joint> FrontDisc {
+    <Transform> {
+      <Matrix4> {
+        1 0 0 0
+        0 1 0 0
+        0 0 1 0
+        0 0.561466 -1.20088 1
+      }
+    }
+  }
+  <Joint> Turret {
+    <Transform> {
+      <Matrix4> {
+        1 0 0 0
+        0 1 0 0
+        0 0 1 0
+        0 1.23472 0.300207 1
+      }
+    }
+  }
+}
