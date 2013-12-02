@@ -15,7 +15,6 @@ class Track:
 		mask.clearRange(2,1)
 		self.groundCol.setCollideMask(mask)
 		self.setupLight()
-		self.setupSkySphere()
 		
 	def setupLight(self):
 		primeL = DirectionalLight("prime")
@@ -29,28 +28,10 @@ class Track:
 		render.setLight(self.ambLight)
 		return
 
-	def setupSkySphere(self):
-		self.skySphere = loader.loadModel("Models/LinearPinkSkySphere.bam")
-		self.skySphere.reparentTo(render)
-		self.skySphere.setBin('background', 1)		
-		self.skySphere.setDepthWrite(False) 		
-		self.skySphere.setShaderOff()		
-		self.skySphere.setAlphaScale(0)		
-		taskMgr.add(self.skySphereTask, "SkySphere Task")
-		return
-
-	def skySphereTask(self, task):
-		if(self.skySphere == None):
-			return task.done
-		else:
-			self.skySphere.setPos(base.camera, 0, 0, 0)
-			return task.cont
-
 	def destroy(self):
 		self.track.removeNode()
 		self.planet.removeNode()
 		self.groundCol.removeNode()
-		self.skySphere.removeNode()
 		self.dirLight.removeNode()
 		self.ambLight.removeNode()
 		self.trackLanes.destroy()

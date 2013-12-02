@@ -9,7 +9,7 @@ from MenuClass import Menu
 class World:
 	def __init__(self):
 		base.disableMouse()
-		base.setBackgroundColor(0, 0, 0)
+		base.setBackgroundColor(0.135, 0.206, 0.235)
 		self.inputManager = InputManager()
 		self.filters = CommonFilters(base.win, base.cam)
 		filterok = self.filters.setBloom(blend=(0, 0, 0, 1), desat=-0.5, intensity=3.0, size=2)
