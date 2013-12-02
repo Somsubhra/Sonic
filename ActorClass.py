@@ -46,7 +46,9 @@ class Actor(DirectObject):
             self.model.setHpr(180,0,0)
         elif (startPos == 2):
             self.root.setPos(-5, -5, 0)
-            self.model = loader.loadModel("Models/BlueActor.bam")
+            self.model = loader.loadModel("Models/tails.egg")
+            self.model.setScale(0.1,0.1,0.1)
+            self.model.setHpr(180,0,0)
         elif (startPos == 3):
             self.root.setPos(5, -10, 0)
             self.model = loader.loadModel("Models/GreenActor.bam")
