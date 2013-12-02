@@ -37,8 +37,8 @@ class Race:
 		self.track = Track()
 		self.actors.append(Actor(self.inputManager, self.track, self.a3DList[0], 1, "A"))
 		self.actors.append(Actor(self.inputManager, self.track, self.a3DList[1], 2, "B", ai=True))
-		self.actors.append(Actor(self.inputManager, self.track, self.a3DList[3], 3, "C", ai=True))
-		self.actors.append(Actor(self.inputManager, self.track, self.a3DLIst[4], 4, "D", ai=True))
+		self.actors.append(Actor(self.inputManager, self.track, self.a3DList[2], 3, "C", ai=True))
+		self.actors.append(Actor(self.inputManager, self.track, self.a3DList[3], 4, "D", ai=True))
 
 		self.gui.setActor(self.actors[0])
 		self.gui.show()

@@ -41,26 +41,26 @@ class Actor(DirectObject):
 
         if (startPos == 1):
             self.root.setPos(5, 0, 0)
-            self.model = loader.loadModel("../Models/RedActor.bam")
+            self.model = loader.loadModel("Models/RedActor.bam")
         elif (startPos == 2):
             self.root.setPos(-5, -5, 0)
-            self.model = loader.loadModel("../Models/BlueActor.bam")
+            self.model = loader.loadModel("Models/BlueActor.bam")
         elif (startPos == 3):
             self.root.setPos(5, -10, 0)
-            self.model = loader.loadModel("../Models/GreenActor.bam")
+            self.model = loader.loadModel("Models/GreenActor.bam")
         elif (startPos == 4):
             self.root.setPos(-5, -15, 0)
-            self.model = loader.loadModel("../Models/YellowActor.bam")
+            self.model = loader.loadModel("Models/YellowActor.bam")
 
-        self.mounts = Actor("../Models/Mounts.egg")
+        #self.mounts = Actor("Models/Mounts.egg")
 
         self.model.reparentTo(self.actor)
-        self.mounts.reparentTo(self.model)
+        #self.mounts.reparentTo(self.model)
 
-        self.fd = loader.loadModel("../Models/Disc.bam")
-        self.rd = loader.loadModel("../Models/Disc.bam")
+        self.fd = loader.loadModel("Models/Disc.bam")
+        self.rd = loader.loadModel("Models/Disc.bam")
 
-        self.engineSfx = self.audio3D.loadSfx("../Sound/Engine.wav")
+        self.engineSfx = self.audio3D.loadSfx("Sound/Engine.wav")
         self.audio3D.attachSoundToObject(self.engineSfx, self.root)
         self.engineSfx.setPlayRate(.5)
         self.engineSfx.setLoop(True)
@@ -152,11 +152,11 @@ class Actor(DirectObject):
         self.trgtrCN.addSolid(self.trgtrRay)
         self.trgtrCN.setFromCollideMask(BitMask32.bit(3))
         self.trgtrCN.setIntoCollideMask(BitMask32.allOff())
-        self.trgtrCNP = self.trgtrMount.attachNewNode(self.trgtrCN)
+        #self.trgtrCNP = self.trgtrMount.attachNewNode(self.trgtrCN)
 
         self.trgtrCTrav = CollisionTraverser()
         self.trgtrCHan = CollisionHandlerQueue()
-        self.trgtrCTrav.addCollider(self.trgtrCNP, self.trgtrCHan)
+        #self.trgtrCTrav.addCollider(self.trgtrCNP, self.trgtrCHan)
 
         return
 
@@ -489,7 +489,7 @@ class Actor(DirectObject):
     def destroy(self):
         self.root.removeNode()
         self.actor.removeNode()
-        self.mounts.delete()
+        #self.mounts.delete()
         self.model.removeNode()
         self.fd.removeNode()
         self.rd.removeNode()
@@ -498,7 +498,7 @@ class Actor(DirectObject):
         self.trackNP.removeNode()
         self.shieldCNP.removeNode()
         self.gRayCNP.removeNode()
-        self.trgtrCNP.removeNode()
+        #self.trgtrCNP.removeNode()
         self.glow.removeNode()
 
         self.audio3D.detachSound(self.engineSfx)

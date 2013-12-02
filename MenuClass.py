@@ -22,7 +22,7 @@ class Menu:
 
         if(type == 0):
             self.frame = DirectFrame(
-                geom = self.menuGraphics.find("**/Menu0"), relif = None,
+                geom = self.menuGraphics.find("**/Menu0"), relief = None,
                 scale = (1.5,1,1.5), frameColor = (1,1,1,.75),
                 pos = (.2625,0,.43125), parent = base.a2dBottomLeft)
 
@@ -95,7 +95,7 @@ class Menu:
         if(self.inputManager != None):
             self.itemHL = 0
             self.keyWait = 0
-            self.highlightItem(0)
+            self.highlightItems(0)
             taskMgr.add(self.menuControl, "Menu Control")
 
         return
