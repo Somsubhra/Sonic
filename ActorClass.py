@@ -50,11 +50,13 @@ class Actor(DirectObject):
             self.model.setScale(0.1,0.1,0.1)
             self.model.setHpr(180,0,0)
         elif (startPos == 3):
-            self.root.setPos(5, -10, 0)
-            self.model = loader.loadModel("Models/GreenActor.bam")
+            self.root.setPos(-5, -10, 0)
+            self.model = loader.loadModel("Models/ballonmodel.egg")
+            self.model.setScale(0.03,0.03,0.03)
         elif (startPos == 4):
-            self.root.setPos(-5, -15, 0)
-            self.model = loader.loadModel("Models/YellowActor.bam")
+            self.root.setPos(5, -15, 0)
+            self.model = loader.loadModel("Models/slugrocket-model.egg")
+            #self.model.setScale(0.03,0.03,0.03)
 
         #self.mounts = Actor("Models/Mounts.egg")
 
