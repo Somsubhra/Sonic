@@ -84,7 +84,7 @@ class Actor(DirectObject):
         self.maxShield = 500
         self.shield = self.maxShield
         self.accel = 25
-        self.handling = 25
+        self.handling = 50
         self.maxEnergy = 100
         self.energy = self.maxEnergy
         self.stability = 25
@@ -361,14 +361,14 @@ class Actor(DirectObject):
         currentLean = self.model.getR()
 
         if (self.turning == "r"):
-            self.lean += 2.5
-            if (self.lean > 25): self.lean = 25
+            self.lean -= 2.5
+            if (self.lean < -25): self.lean = -25
             self.model.setR(self.model,
                             (self.lean - currentLean) * dt * 5)
 
         elif (self.turning == "l"):
-            self.lean -= 2.5
-            if (self.lean < -25): self.lean = -25
+            self.lean += 2.5
+            if (self.lean > 25): self.lean = 25
             self.model.setR(self.model,
                             (self.lean - currentLean) * dt * 5)
 
