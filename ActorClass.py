@@ -78,7 +78,7 @@ class Actor(DirectObject):
 
         self.speed = 0
         self.throttle = 0
-        self.maxSpeed = 200
+        self.maxSpeed = 500
         self.maxShield = 500
         self.shield = self.maxShield
         self.accel = 25
