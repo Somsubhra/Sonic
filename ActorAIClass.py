@@ -40,13 +40,6 @@ class ActorAI:
         self.dCHan = CollisionHandlerQueue()
         self.dCTrav.addCollider(self.detCNP, self.dCHan)
 
-        self.targetNP = self.actor.actor.attachNewNode(self.actor.name + "_AI_Target_NodePath")
-        self.targetNP.setPos(0, 10, 1)
-
-        self.aimAcc = 2
-
-        self.reTargetCounter = 0
-
     def runPilotAI(self, task):
         if (self.actor.actor == None):
             self.destroy()
@@ -222,7 +215,6 @@ class ActorAI:
             return (True)
 
     def destroy(self):
-        self.targetNP.removeNode()
         self.detCNP.removeNode()
         self.actor = None
         return
