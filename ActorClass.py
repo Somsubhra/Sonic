@@ -359,14 +359,14 @@ class Actor(DirectObject):
         currentLean = self.model.getR()
 
         if (self.turning == "r"):
-            self.lean += 2.5
-            if (self.lean > 25): self.lean = 25
+            self.lean -= 2.5
+            if (self.lean < -25): self.lean = -25
             self.model.setR(self.model,
                             (self.lean - currentLean) * dt * 5)
 
         elif (self.turning == "l"):
-            self.lean -= 2.5
-            if (self.lean < -25): self.lean = -25
+            self.lean += 2.5
+            if (self.lean > 25): self.lean = 25
             self.model.setR(self.model,
                             (self.lean - currentLean) * dt * 5)
 
