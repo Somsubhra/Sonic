@@ -4,7 +4,7 @@ from TrackClass import Track
 from ActorClass import Actor
 
 class Race:
-	def __init__(self, inputManager, gui)
+	def __init__(self, inputManager, gui):
 		self.inputManager = inputManager
 		self.actors = []
 		self.track = None
