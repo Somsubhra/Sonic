@@ -4,7 +4,7 @@ from direct.interval.IntervalGlobal import *
 
 
 class Gui:
-    def __index__(self, fonts):
+    def __init__(self, fonts):
         self.modTS = TextureStage("Modulate")
         self.modTS.setMode(TextureStage.MModulate)
 
