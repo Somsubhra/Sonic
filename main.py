@@ -24,7 +24,7 @@ class World:
 		}
 		
 		gui = Gui(self.fonts)
-		self.race = Race(self.inputMaager, gui)
+		self.race = Race(self.inputManager, gui)
 		self.race.createDemoRace()
 		self.createStartMenu()
 

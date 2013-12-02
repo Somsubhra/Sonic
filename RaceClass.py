@@ -14,7 +14,7 @@ class Race:
 
 		for N in range(4):
 			self.amList.append(AudioManager.createAudioManager())
-			base.addSfxManager(self.amLost[N])
+			base.addSfxManager(self.amList[N])
 			self.a3DList.append(Audio3DManager.Audio3DManager(base.sfxManagerList[N+1], camera))
 			self.a3DList[N].setDropOffFactor(.1)
 
