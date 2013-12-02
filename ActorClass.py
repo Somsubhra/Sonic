@@ -82,7 +82,7 @@ class Actor(DirectObject):
         self.maxShield = 500
         self.shield = self.maxShield
         self.accel = 25
-        self.handling = 25
+        self.handling = 50
         self.maxEnergy = 100
         self.energy = self.maxEnergy
         self.stability = 25
