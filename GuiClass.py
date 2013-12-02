@@ -29,15 +29,6 @@ class Gui:
             parent=base.a2dBottomLeft
         )
 
-        shieldEgg = loader.loadModel("Models/ShieldBar.egg")
-        self.shieldBG = shieldEgg.find("**/BackgroundBar")
-        self.shieldBar = shieldEgg.find("**/ShieldBar")
-        self.shieldFrame = shieldEgg.find("**/BarFrame")
-        self.shieldBG.reparentTo(self.llFrame)
-        self.shieldBar.reparentTo(self.shieldBG)
-        self.shieldFrame.reparentTo(self.shieldBG)
-        self.shieldBG.setPos(.1, 0, .225)
-
         speedEgg = loader.loadModel("Models/SpeedBar.egg")
         self.speedBG = speedEgg.find("**/BackgroundBar")
         self.speedBar = speedEgg.find("**/SpeedBar")
@@ -52,7 +43,6 @@ class Gui:
         alpha.setWrapV(Texture.WMClamp)
 
         self.speedBar.setTexture(self.modTS, alpha)
-        self.shieldBar.setTexture(self.modTS, alpha)
 
         self.throttleBar = speedEgg.find("**/ThrottleBar")
         self.throttleBar.reparentTo(self.speedBG)
@@ -60,12 +50,6 @@ class Gui:
         throtAlpha = loader.loadTexture("Images/ThrottleAlpha.png")
         throtAlpha.setFormat(Texture.FAlpha)
         self.throttleBar.setTexture(self.modTS, throtAlpha)
-
-        self.shieldText = DirectLabel(text="500 R",
-                                      text_font=fonts["blue"], text_scale=.075,
-                                      pos=(.5, 0, .25), text_fg=(1, 1, 1, 1),
-                                      relief=None, text_align=TextNode.ARight,
-                                      parent=self.llFrame)
 
         self.speedText = DirectLabel(text="180 KPH",
                                      text_font=fonts["orange"], text_scale=.075,
@@ -145,13 +129,7 @@ class Gui:
 
         self.speedBar.setTexOffset(self.modTS, 0, .95 * speedRatio)
 
-        shieldRatio = (self.actor.maxShield -
-                       self.actor.shield) / self.actor.maxShield
-
-        self.shieldBar.setTexOffset(self.modTS, 0, .95 * shieldRatio)
-
         self.speedText["text"] = str(int(self.actor.speed)) + " KPH"
-        self.shieldText["text"] = str(int(self.actor.shield)) + " R"
 
         return
 
