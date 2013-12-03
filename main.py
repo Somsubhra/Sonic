@@ -40,7 +40,7 @@ class World:
 
 	def createReadyDialogue(self):
 		menu = Menu(self.menuGraphics, self.fonts, self.inputManager)
-		menu.initMenu([3, "Ready?", ["Yes", "Exit"], [[self.race.startRace], [self.race.createDemoRace]], [[3], [None]]])
+		menu.initMenu([3, "Ready?", ["Yes", "Exit"], [[self.race.startRace], [self.race.createDemoRace]], [[0], [None]]])
 
 	def debugTask(self, task):
 		print(taskMgr)
