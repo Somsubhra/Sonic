@@ -128,7 +128,7 @@ class Gui:
         self.energyText["text"] = "Score:" + scoreStr + "\tLaps:" + str(int(Gui.laps - 2))
         if(Gui.laps == 5):
             self.actor.shutDown = True
-            self.actor.throttle = 0
+            self.actor.speed = 0
         return
 
     def updateGui(self, task):
