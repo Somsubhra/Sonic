@@ -2,6 +2,7 @@ from direct.showbase.DirectObject import DirectObject
 from pandac.PandaModules import *
 from direct.actor.Actor import Actor
 from ActorAIClass import ActorAI
+import GuiClass
 
 
 class Actor(DirectObject):
@@ -393,6 +394,8 @@ class Actor(DirectObject):
             self.markerCount += 1
 
             if (self.uc1 == self.lanes[0][1] or self.uc1 == self.lanes[1][1]):
+                if(self.name == 'A'):
+                    GuiClass.Gui.laps += 1
                 self.currentLap += 1
 
         return

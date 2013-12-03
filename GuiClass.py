@@ -4,8 +4,9 @@ from direct.interval.IntervalGlobal import *
 
 
 class Gui:
+    laps = 0
     def __init__(self, fonts):
-	self.score = 0
+        self.score = 0
         self.modTS = TextureStage("Modulate")
         self.modTS.setMode(TextureStage.MModulate)
 
@@ -57,7 +58,7 @@ class Gui:
                                      pos=(.5, 0, .15), text_fg=(1, 1, 1, 1),
                                      relief=None, text_align=TextNode.ARight,
                                      parent=self.llFrame)
-
+        Gui.laps = 0
         return
 
     def createURGui(self, fonts):
@@ -66,12 +67,12 @@ class Gui:
                                    parent=base.a2dTopRight
         )
 
-        self.energyText = DirectLabel(text="Score:0",
+        self.energyText = DirectLabel(text="Score:0\tLaps:0",
                                       text_font=fonts["orange"], text_scale=.05,
                                       pos=(-.65, 0, -.0525), text_fg=(1, 1, 1, 1),
                                       relief=None, text_align=TextNode.ARight,
                                       parent=self.urFrame)
-
+        Gui.laps = 0
         return
 
     def createWarning(self, fonts):
@@ -120,8 +121,11 @@ class Gui:
         return
 
     def updateURGui(self):
-	self.score = self.score + self.actor.speed/10
-        self.energyText["text"] = "Score:"+str(int(self.score))
+        self.score = self.score + self.actor.speed / 100
+        scoreStr = str(int(self.score))
+        while(len(scoreStr) < 3):
+            scoreStr = "0"+scoreStr
+        self.energyText["text"] = "Score:" + scoreStr + "\tLaps:" + str(int(Gui.laps - 2))
         return
 
     def updateGui(self, task):
@@ -132,7 +136,7 @@ class Gui:
         if (self.visible == True):
 
             self.updateLLGui()
-	    self.updateURGui()
+            self.updateURGui()
 
             if (self.actor.shutDown == True and
                         self.warningSeq.isPlaying() == False):
@@ -157,9 +161,12 @@ class Gui:
         return
 
     def showWarning(self):
-        self.warning["text_fg"] = (1,1,1,1)
+        self.warning["text_fg"] = (1, 1, 1, 1)
         return
 
     def fadeWarning(self, T):
-        self.warning["text_fg"] = (1,1,1,T)
+        self.warning["text_fg"] = (1, 1, 1, T)
         return
+
+    def incrementScore():
+        Gui.laps += 1
