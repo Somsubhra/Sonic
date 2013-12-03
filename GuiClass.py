@@ -77,7 +77,7 @@ class Gui:
 
     def createWarning(self, fonts):
         self.warning = DirectLabel(
-            text="*** Emergency Shut Down Active ***",
+            text="*** You finished 3 Laps ***",
             text_font=fonts["orange"], text_scale=.1,
             text_fg=(1, 1, 1, 0), relief=None,
             text_align=TextNode.ACenter,
@@ -126,6 +126,9 @@ class Gui:
         while(len(scoreStr) < 3):
             scoreStr = "0"+scoreStr
         self.energyText["text"] = "Score:" + scoreStr + "\tLaps:" + str(int(Gui.laps - 2))
+        if(Gui.laps == 5):
+            self.actor.shutDown = True
+            self.actor.throttle = 0
         return
 
     def updateGui(self, task):
