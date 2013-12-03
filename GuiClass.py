@@ -5,6 +5,7 @@ from direct.interval.IntervalGlobal import *
 
 class Gui:
     def __init__(self, fonts):
+	self.score = 0
         self.modTS = TextureStage("Modulate")
         self.modTS.setMode(TextureStage.MModulate)
 
@@ -65,22 +66,7 @@ class Gui:
                                    parent=base.a2dTopRight
         )
 
-        energyEgg = loader.loadModel("Models/EnergyBar.egg")
-        self.energyBG = energyEgg.find("**/EnergyBG")
-        self.energyBar = energyEgg.find("**/EnergyBar")
-        self.energyFrame = energyEgg.find("**/EnergyFrame")
-        self.energyBG.reparentTo(self.urFrame)
-        self.energyBar.reparentTo(self.energyBG)
-        self.energyFrame.reparentTo(self.energyBG)
-        self.energyBG.setPos(-.35, 0, -.0375)
-
-        alpha = loader.loadTexture("Images/ReloadAlpha.png")
-        alpha.setFormat(Texture.FAlpha)
-        alpha.setWrapU(Texture.WMClamp)
-
-        self.energyBar.setTexture(self.modTS, alpha)
-
-        self.energyText = DirectLabel(text="100",
+        self.energyText = DirectLabel(text="Score:0",
                                       text_font=fonts["orange"], text_scale=.05,
                                       pos=(-.65, 0, -.0525), text_fg=(1, 1, 1, 1),
                                       relief=None, text_align=TextNode.ARight,
@@ -134,12 +120,8 @@ class Gui:
         return
 
     def updateURGui(self):
-        energyRatio = self.actor.energy / self.actor.maxEnergy
-
-        self.energyBar.setTexOffset(self.modTS,
-                                    -(1 - energyRatio) + .015, 0)
-
-        self.energyText["text"] = str(int(self.actor.energy))
+	self.score = self.score + self.actor.speed/10
+        self.energyText["text"] = "Score:"+str(int(self.score))
         return
 
     def updateGui(self, task):
@@ -150,6 +132,7 @@ class Gui:
         if (self.visible == True):
 
             self.updateLLGui()
+	    self.updateURGui()
 
             if (self.actor.shutDown == True and
                         self.warningSeq.isPlaying() == False):
