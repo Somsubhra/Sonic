@@ -1,4 +1,3 @@
 Sonic
 =====
-To run
-1. ppython main.py
+To run: ppython main.py
